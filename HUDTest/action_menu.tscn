@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://clk63o8dau4ad"]
+
+[ext_resource type="Script" path="res://action_menu.gd" id="1_7n58v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2pyx"]
+bg_color = Color(0.839216, 0.509804, 0.498039, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xsy6"]
+bg_color = Color(0.298039, 0.12549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhf0t"]
+bg_color = Color(0.298039, 0.12549, 0.12549, 1)
+
+[node name="ActionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7n58v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -162.0
+offset_right = -89.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="FightButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2pyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1xsy6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vhf0t")
+text = "Fight
+"
+alignment = 0
+
+[node name="TeamButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2pyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1xsy6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vhf0t")
+text = "Team
+"
+alignment = 0
+
+[node name="ItemButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2pyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1xsy6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vhf0t")
+text = "Item
+"
+alignment = 0
+
+[node name="RunButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2pyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1xsy6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vhf0t")
+text = "Run"
+alignment = 0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/FightButton" to="." method="_on_fight_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TeamButton" to="." method="_on_team_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ItemButton" to="." method="_on_item_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RunButton" to="." method="_on_run_button_pressed"]
